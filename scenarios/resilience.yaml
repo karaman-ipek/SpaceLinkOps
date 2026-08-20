@@ -1,0 +1,16 @@
+name: LEO Earth Observation — Resilience Stress Test
+duration_s: 86400
+time_step_s: 20
+seed: 42
+orbit: {altitude_km: 550, inclination_deg: 53, raan_deg: 15, argument_of_perigee_deg: 0, mean_anomaly_deg: 0}
+ground_stations:
+  - {name: Kourou, latitude_deg: 5.236, longitude_deg: -52.775, elevation_mask_deg: 10, antenna_gain_dbi: 20, system_noise_temperature_k: 450}
+  - {name: Hartebeesthoek, latitude_deg: -25.8897, longitude_deg: 27.6861, elevation_mask_deg: 10, antenna_gain_dbi: 20, system_noise_temperature_k: 500}
+  - {name: Santiago, latitude_deg: -33.4489, longitude_deg: -70.6693, elevation_mask_deg: 10, antenna_gain_dbi: 20, system_noise_temperature_k: 500}
+radio: {frequency_hz: 2200000000, transmit_power_w: 2, spacecraft_antenna_gain_dbi: -5, system_losses_db: 3, atmospheric_loss_db: 1, bandwidth_hz: 100000, data_rate_bps: 19200, required_ebn0_db: 6}
+traffic: {command_interval_s: 300, command_size_bits: 2048, telemetry_interval_s: 60, telemetry_size_bits: 8192, max_retries: 2, processing_delay_s: 0.15}
+failures:
+  station_outages: {Kourou: [[0, 86400]]}
+  network_delay_windows: [[40000, 50000]]
+  network_extra_delay_s: 2.5
+  link_margin_penalty_db: 3

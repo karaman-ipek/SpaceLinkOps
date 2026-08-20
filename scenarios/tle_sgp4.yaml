@@ -1,0 +1,15 @@
+name: Public TLE Demonstration — SGP4
+duration_s: 86400
+time_step_s: 20
+seed: 42
+orbit:
+  model: sgp4
+  tle_line1: "1 87820U 11053A   11273.79990913  .00099611  00000-0  64461-3 0  9991"
+  tle_line2: "2 87820 042.7843 189.7738 0014383 039.8647 002.5266 15.74868665   196"
+ground_stations:
+  - {name: Kourou, latitude_deg: 5.236, longitude_deg: -52.775, elevation_mask_deg: 10, antenna_gain_dbi: 20, system_noise_temperature_k: 450}
+  - {name: Hartebeesthoek, latitude_deg: -25.8897, longitude_deg: 27.6861, elevation_mask_deg: 10, antenna_gain_dbi: 20, system_noise_temperature_k: 500}
+  - {name: Santiago, latitude_deg: -33.4489, longitude_deg: -70.6693, elevation_mask_deg: 10, antenna_gain_dbi: 20, system_noise_temperature_k: 500}
+radio: {frequency_hz: 2200000000, transmit_power_w: 2, spacecraft_antenna_gain_dbi: -5, system_losses_db: 3, atmospheric_loss_db: 1, bandwidth_hz: 100000, data_rate_bps: 19200, required_ebn0_db: 6}
+traffic: {command_interval_s: 300, command_size_bits: 2048, telemetry_interval_s: 60, telemetry_size_bits: 8192, max_retries: 2, processing_delay_s: 0.15, command_ttl_s: 1800}
+failures: {margin_jitter_sigma_db: 1.5, packet_corruption_probability: 0.002}

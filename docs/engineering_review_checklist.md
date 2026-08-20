@@ -1,0 +1,23 @@
+# C3/TT&C engineering review checklist
+
+- [x] Orbit model and reference-frame assumptions are explicit.
+- [x] Public TLE/SGP4 path is isolated and testable.
+- [x] Elevation masks and contact windows are station-specific.
+- [x] Range rate produces predicted carrier Doppler.
+- [x] Link budget exposes FSPL, Pr, C/N0, Eb/N0, SNR and margin.
+- [x] BER/PER depends on modulation, Eb/N0 and transfer length.
+- [x] Commands have queueing, TTL, retries, execution and acknowledgement states.
+- [x] Frames carry spacecraft ID, virtual channel, sequence and CRC.
+- [x] Network delay, RF degradation, corruption and station outage are separable.
+- [x] Metrics distinguish geometric availability, in-contact success and mission completion.
+- [x] Monte Carlo reports distribution percentiles, not only a mean.
+- [x] FMEA, graph cuts and station-ablation quantify resilience.
+- [x] Assumptions and non-flight limitations are prominent.
+- [x] RBAC, independent approval, dual control and global inhibit are enforced.
+- [x] Telemetry alarm debounce, acknowledgement and stale detection are tested.
+- [x] Audit evidence is hash chained and tamper detection is tested.
+- [x] Requirements map to implementation and named verification tests.
+- [x] Digital-twin critical faults trigger a deterministic SAFE transition.
+- [x] Real-equipment command transport is absent by design.
+- [ ] Flight modem/coding curves require mission-specific supplier data.
+- [ ] Operational use requires IERS Earth orientation and externally qualified propagation.

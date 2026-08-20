@@ -1,0 +1,44 @@
+- id: OPS-REQ-001
+  text: The system shall prevent command release while global inhibit is active.
+  implementation: src/spacelinkops/operations.py
+  verification: tests/test_operations.py::test_inhibit_blocks_release
+- id: OPS-REQ-002
+  text: Hazardous commands shall require two independent approvals.
+  implementation: src/spacelinkops/operations.py
+  verification: tests/test_operations.py::test_hazardous_dual_control
+- id: OPS-REQ-003
+  text: A command submitter shall not approve the same command.
+  implementation: src/spacelinkops/operations.py
+  verification: tests/test_operations.py::test_submitter_cannot_approve
+- id: OPS-REQ-004
+  text: Released commands shall remain isolated from real external equipment.
+  implementation: src/spacelinkops/operations.py
+  verification: tests/test_operations.py::test_release_is_simulator_only
+- id: TLM-REQ-001
+  text: Telemetry limit violations shall respect configured debounce.
+  implementation: src/spacelinkops/alarms.py
+  verification: tests/test_alarms_twin.py::test_alarm_debounce_and_acknowledgement
+- id: TLM-REQ-002
+  text: The system shall identify stale telemetry.
+  implementation: src/spacelinkops/alarms.py
+  verification: tests/test_alarms_twin.py::test_stale_detection
+- id: FDIR-REQ-001
+  text: Critical spacecraft faults shall autonomously transition the twin to SAFE mode.
+  implementation: src/spacelinkops/twin.py
+  verification: tests/test_alarms_twin.py::test_critical_fault_enters_safe_mode
+- id: AUD-REQ-001
+  text: Operational actions shall form a verifiable tamper-evident audit chain.
+  implementation: src/spacelinkops/assurance.py
+  verification: tests/test_assurance.py::test_audit_chain_detects_tampering
+- id: RF-REQ-001
+  text: Link analysis shall calculate FSPL and modulation-specific packet error probability.
+  implementation: src/spacelinkops/link.py; src/spacelinkops/rf.py
+  verification: tests/test_models.py::test_fspl_reference_value; tests/test_protocol_rf.py::test_bpsk_reference_and_doppler
+- id: ORB-REQ-001
+  text: The system shall accept public TLEs and propagate them with SGP4.
+  implementation: src/spacelinkops/sgp4prop.py
+  verification: tests/test_sgp4.py::test_public_tle_propagates_to_leo_state
+- id: ORB-REQ-002
+  text: The TEME-to-ECEF conversion shall agree with the IAU-1982 GMST reference and report an explicit neglected-Earth-orientation error bound.
+  implementation: src/spacelinkops/validation.py
+  verification: tests/test_validation.py::test_gmst_matches_iau1982_reference_at_j2000
