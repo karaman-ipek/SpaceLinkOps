@@ -1,5 +1,4 @@
-[![CI](https://github.com/karaman-ipek/StationKeep/actions/workflows/ci.yml/badge.svg)](https://github.com/karaman-ipek/StationKeep/actions/workflows/ci.yml)
-
+[![CI](https://github.com/karaman-ipek/SpaceLinkOps/actions/workflows/ci.yml/badge.svg)](https://github.com/karaman-ipek/SpaceLinkOps/actions/workflows/ci.yml)
 # SpaceLinkOps
 **An assurance-oriented, offline satellite C3 and TT&C mission-operations demonstrator.**
 
